@@ -8,6 +8,7 @@ const app = express();
 app.use(
   cors({
     origin: "https://cottash-front.vercel.app",
+    credentials: true,
   })
 );
 
