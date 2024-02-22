@@ -1,8 +1,16 @@
 import express from "express";
 import payload from "payload";
+const cors = require("cors");
 
 require("dotenv").config();
+
 const app = express();
+app.use(
+  cors({
+    origin: "https://cottash-front.vercel.app",
+  })
+);
+
 const collections = [
   "items",
   "color",
