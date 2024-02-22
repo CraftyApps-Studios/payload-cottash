@@ -17,7 +17,7 @@ import {
 } from "./collections";
 
 export default buildConfig({
-  serverURL: 'https://payload-cottash.up.railway.app/',
+  serverURL: 'https://payload-cottash.up.railway.app',
   admin: {
     user: Users.slug,
     bundler: webpackBundler(),
