@@ -22,6 +22,8 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
+  cors: ['http://cottash-front.vercel.app'],
+  csrf: ['http://cottash-front.vercel.app'],
   collections: [
     Users,
     Packaging,
