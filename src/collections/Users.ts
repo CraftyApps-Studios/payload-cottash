@@ -7,6 +7,7 @@ const Users: CollectionConfig = {
   auth: {
     cookies: {
       sameSite: 'none',
+      secure: true,
     }
   },
   access: {
