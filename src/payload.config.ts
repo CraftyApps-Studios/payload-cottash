@@ -23,14 +23,8 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  cors: [
-    "https://cottash-front.vercel.app",
-    "https://payload-cottash.up.railway.app",
-  ],
-  csrf: [
-    "https://cottash-front.vercel.app",
-    "https://payload-cottash.up.railway.app",
-  ],
+  cors: ["https://cottash-front.vercel.app"],
+  csrf: ["https://cottash-front.vercel.app"],
   collections: [Users, Packaging, Textil, Color, Supplier, Ubication, Items],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
