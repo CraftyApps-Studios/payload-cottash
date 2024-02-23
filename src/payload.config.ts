@@ -23,14 +23,8 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  cors: [
-    "https://cottash-front.vercel.app" || "",
-    "https://payload-cottash.up.railway.app" || "",
-  ].filter(Boolean),
-  csrf: [
-    "https://cottash-front.vercel.app" || "",
-    "https://payload-cottash.up.railway.app" || "",
-  ].filter(Boolean),
+  cors: ["https://cottash-front.vercel.app" || ""].filter(Boolean),
+  csrf: ["https://cottash-front.vercel.app" || ""].filter(Boolean),
   collections: [Users, Packaging, Textil, Color, Supplier, Ubication, Items],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
