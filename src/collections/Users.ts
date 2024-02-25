@@ -4,7 +4,13 @@ import { isAdminOrSelf } from '../access/isAdminOrSelf';
 
 const Users: CollectionConfig = {
   slug: 'users',
-  auth: true,
+  auth: {
+    cookies: {
+      sameSite: 'none',
+      secure: true,
+      domain: '.vercel.app'
+    }
+  },
   access: {
     // Only admins can create users
     create: isAdmin,
