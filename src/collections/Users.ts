@@ -4,12 +4,7 @@ import { isAdminOrSelf } from '../access/isAdminOrSelf';
 
 const Users: CollectionConfig = {
   slug: 'users',
-  auth: {
-    cookies: {
-      sameSite: 'none',
-      secure: true,
-    }
-  },
+  auth: true,
   access: {
     // Only admins can create users
     create: isAdmin,
