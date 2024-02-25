@@ -8,7 +8,7 @@ const Users: CollectionConfig = {
     cookies: {
       sameSite: 'none',
       secure: true,
-      domain: 'payload-cottash.up.railway.app'
+      domain: '.up.railway.app'
     }
   },
   access: {
