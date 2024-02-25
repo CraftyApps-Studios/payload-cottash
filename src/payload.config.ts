@@ -17,14 +17,14 @@ import {
 } from "./collections";
 
 export default buildConfig({
-  serverURL: "https://payload-cottash.up.railway.app",
+  serverURL: process.env.SERVER_URL,
   admin: {
     user: Users.slug,
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  cors: ["https://cottash-front.vercel.app"],
-  csrf: ["https://cottash-front.vercel.app"],
+  cors: [process.env.CORS_CSRF_URL],
+  csrf: [process.env.CORS_CSRF_URL],
   collections: [Users, Packaging, Textil, Color, Supplier, Ubication, Items],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
