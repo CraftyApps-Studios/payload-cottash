@@ -18,6 +18,10 @@ import {
 
 export default buildConfig({
   serverURL: process.env.SERVER_URL,
+  admin: {
+    user: Users.slug,
+    bundler: webpackBundler(),
+  },
   editor: slateEditor({}),
   cors: [
     process.env.CORS_CSRF_FRONT_URL || "",
