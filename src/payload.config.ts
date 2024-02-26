@@ -23,8 +23,14 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  cors: [process.env.CORS_CSRF_URL],
-  csrf: [process.env.CORS_CSRF_URL],
+  cors: [
+    process.env.CORS_CSRF_FRONT_URL || "",
+    process.env.SERVER_URL || "",
+  ].filter(Boolean),
+  csrf: [
+    process.env.CORS_CSRF_FRONT_URL || "",
+    process.env.SERVER_URL || "",
+  ].filter(Boolean),
   collections: [Users, Packaging, Textil, Color, Supplier, Ubication, Items],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
