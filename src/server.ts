@@ -1,9 +1,24 @@
 import express from "express";
 import payload from "payload";
+import { CookieOptions } from "express";
 
 require("dotenv").config();
 
 const app = express();
+
+app.use((req, res, next) => {
+  // Establece una cookie con el nombre "ing" y el valor "valor-de-la-cookie"
+  for (const cookie of req.cookies) {
+    // Cambia el valor de SameSite a "None" para la cookie "ing"
+    if (cookie.name === 'lng') {
+      cookie.sameSite = 'none';
+      cookie.secure = true;
+      cookie.domain = '.up.railway.app';
+    }
+  }
+
+  next()
+});
 
 const collections = [
   "items",

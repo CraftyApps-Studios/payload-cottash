@@ -6,7 +6,7 @@ const Users: CollectionConfig = {
   slug: 'users',
   auth: {
     cookies: {
-      sameSite: 'lax',
+      sameSite: 'none',
       secure: true,
       domain: '.up.railway.app'
     }
