@@ -8,7 +8,7 @@ const Users: CollectionConfig = {
     cookies: {
       sameSite: 'none',
       secure: true,
-      domain: '.up.railway.app'
+      domain: '.vercel.app'
     }
   },
   access: {
