@@ -4,13 +4,7 @@ import { isAdminOrSelf } from '../access/isAdminOrSelf';
 
 const Users: CollectionConfig = {
   slug: 'users',
-  auth: {
-    cookies: {
-      sameSite: 'none',
-      secure: true,
-      domain: '.up.railway.app'
-    }
-  },
+  auth: true,
   access: {
     // Only admins can create users
     create: isAdmin,
