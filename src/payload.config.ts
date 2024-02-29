@@ -32,7 +32,6 @@ export default buildConfig({
   graphQL: {
     schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
   },
-  localization: false,
   plugins: [payloadCloud()],
   db: postgresAdapter({
     pool: {

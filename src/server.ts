@@ -1,9 +1,17 @@
 import express from "express";
 import payload from "payload";
+import cors from "cors";
 
 require("dotenv").config();
 
 const app = express();
+
+app.use(
+  cors({
+    origin: process.env.CORS_CSRF_FRONT_URL,
+    credentials: true,
+  })
+);
 
 const collections = [
   "items",
