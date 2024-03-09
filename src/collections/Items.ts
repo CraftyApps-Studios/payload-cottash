@@ -1,8 +1,8 @@
-import { CollectionConfig } from 'payload/types'
+import { CollectionConfig } from "payload/types";
 import { isAdmin, isAdminFieldLevel } from "../access";
-import { isAdminOrSelf } from '../access/isAdminOrSelf';
+import { isAdminOrSelf } from "../access/isAdminOrSelf";
 const Items: CollectionConfig = {
-  slug: 'items',
+  slug: "items",
   access: {
     // Only admins can create users
     create: () => true,
@@ -15,75 +15,110 @@ const Items: CollectionConfig = {
   },
 
   admin: {
-    useAsTitle: 'cod_interno',
+    useAsTitle: "cod_interno",
   },
 
   fields: [
     {
-      name: 'cod_interno',
-      type: 'text',
+      name: "cod_interno",
+      type: "text",
     },
     {
-      name: 'peso',
-      type: 'number',
-      
+      name: 'dimensiones',
+      type: 'radio',
+      options: [
+        {
+          label: 'Kilo',
+          value: 'kilo',
+        },
+        {
+          label: 'Metro',
+          value: 'metro',
+        },
+      ],
+      defaultValue: 'kilo',
+      admin: {
+        layout: 'horizontal',
+      },
     },
     {
-      name: 'partida',
-      type: 'text',
+      name: "partida",
+      type: "text",
     },
     {
-      name: 'precio',
-      type: 'number',
+      name: "precio",
+      type: "number",
     },
     {
-      name: 'resultado',
-      type: 'number',
+      name: "resultado",
+      type: "number",
       admin: {
         readOnly: true,
       },
       hooks: {
-        beforeChange: [({ data }) => {
-          if (data.peso && data.precio) {
-            return (data.peso * data.precio).toFixed(2);
-          }
-          return 0;
-        }],
+        beforeChange: [
+          ({ data }) => {
+            if (data.peso && data.precio) {
+              return (data.peso * data.precio).toFixed(2);
+            }
+            return 0;
+          },
+        ],
       },
     },
     {
-      name: 'empaquetado',
-      type: 'relationship',
-      relationTo: 'packaging', 
-      hasMany: false,
-
+      name: "fecha_partida",
+      type: "date",
     },
     {
-      name: 'tejido',
-      type: 'relationship',
-      relationTo: 'textil', 
+      name: "empaquetado",
+      type: "relationship",
+      relationTo: "packaging",
       hasMany: false,
     },
     {
-      name: 'color',
-      type: 'relationship',
-      relationTo: 'color', 
+      name: "tejido",
+      type: "relationship",
+      relationTo: "textil",
       hasMany: false,
     },
     {
-      name: 'proveedor',
-      type: 'relationship',
-      relationTo: 'supplier', 
+      name: 'tipo_color',
+      type: 'radio',
+      options: [
+        {
+          label: 'Solido',
+          value: 'solido',
+        },
+        {
+          label: 'Listado',
+          value: 'listado',
+        },
+      ],
+      defaultValue: 'solido',
+      admin: {
+        layout: 'horizontal',
+      },
+    },
+    {
+      name: "color",
+      type: "relationship",
+      relationTo: "color",
       hasMany: false,
     },
     {
-      name: 'ubicacion',
-      type: 'relationship',
-      relationTo: 'ubication', 
+      name: "proveedor",
+      type: "relationship",
+      relationTo: "supplier",
       hasMany: false,
-    }
+    },
+    {
+      name: "ubicacion",
+      type: "relationship",
+      relationTo: "ubication",
+      hasMany: false,
+    },
   ],
-  
-}
+};
 
-export default Items
+export default Items;

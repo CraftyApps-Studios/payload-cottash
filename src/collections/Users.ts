@@ -1,16 +1,17 @@
-import { CollectionConfig } from 'payload/types'
+import { CollectionConfig } from "payload/types";
 import { isAdmin, isAdminFieldLevel } from "../access";
-import { isAdminOrSelf } from '../access/isAdminOrSelf';
+import { isAdminOrSelf } from "../access/isAdminOrSelf";
 
 const Users: CollectionConfig = {
-  slug: 'users',
-  auth: {
+  slug: "users",
+  auth: true,
+  /* auth: {
     cookies: {
-      sameSite: 'none',
+      sameSite: "none",
       secure: true,
-      domain: '.up.railway.app'
-    }
-  },
+      domain: ".up.railway.app",
+    },
+  }, */
   access: {
     // Only admins can create users
     create: isAdmin,
@@ -22,28 +23,28 @@ const Users: CollectionConfig = {
     delete: isAdmin,
   },
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: "email",
   },
   fields: [
     // Email added by default
     // Add more fields as needed
     {
-      name: 'nombre',
-      type: 'text',
+      name: "nombre",
+      type: "text",
       required: true,
     },
     {
-      name: 'celular',
-      type: 'text',
+      name: "celular",
+      type: "text",
       required: true,
     },
     {
-      name: 'roles',
+      name: "roles",
       // Save this field to JWT so we can use from req.user
       saveToJWT: true,
-      type: 'select',
+      type: "select",
       hasMany: true,
-      defaultValue: ['editor'],
+      defaultValue: ["editor"],
       access: {
         // Only admins can create or update a value for this field
         create: isAdminFieldLevel,
@@ -51,16 +52,16 @@ const Users: CollectionConfig = {
       },
       options: [
         {
-          label: 'Admin',
-          value: 'admin',
+          label: "Admin",
+          value: "admin",
         },
         {
-          label: 'Editor',
-          value: 'editor',
+          label: "Editor",
+          value: "editor",
         },
-      ]
+      ],
     },
   ],
-}
+};
 
-export default Users
+export default Users;
