@@ -13,26 +13,6 @@ app.use(
   })
 );
 
-const collections = [
-  "items",
-  "color",
-  "supplier",
-  "ubication",
-  "textil",
-  "packaging",
-];
-
-collections.forEach((collection) => {
-  app.get(`/api/${collection}`, async (req, res) => {
-    const filterCollection = await payload.find({
-      collection: collection,
-      pagination: false,
-    });
-    res.json(filterCollection);
-  });
-});
-
-// Redirect root to Admin panel
 app.get("/", (_, res) => {
   res.redirect("/admin");
 });

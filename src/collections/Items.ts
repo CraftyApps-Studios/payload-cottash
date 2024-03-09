@@ -24,6 +24,10 @@ const Items: CollectionConfig = {
       type: "text",
     },
     {
+      name: "numero_rollo",
+      type: "number",
+    },
+    {
       name: 'dimensiones',
       type: 'radio',
       options: [
@@ -44,6 +48,10 @@ const Items: CollectionConfig = {
     {
       name: "partida",
       type: "text",
+    },
+    {
+      name: "cantidad",
+      type: "number",
     },
     {
       name: "precio",
