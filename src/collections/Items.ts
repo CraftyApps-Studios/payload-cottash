@@ -28,24 +28,6 @@ const Items: CollectionConfig = {
       type: "number",
     },
     {
-      name: 'dimensiones',
-      type: 'radio',
-      options: [
-        {
-          label: 'Kilo',
-          value: 'kilo',
-        },
-        {
-          label: 'Metro',
-          value: 'metro',
-        },
-      ],
-      defaultValue: 'kilo',
-      admin: {
-        layout: 'horizontal',
-      },
-    },
-    {
       name: "partida",
       type: "text",
     },
