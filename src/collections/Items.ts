@@ -24,16 +24,16 @@ const Items: CollectionConfig = {
       type: "text",
     },
     {
-      name: "numero_rollo",
+      name: "rollos",
+      type: "text",
+    },
+    {
+      name: "peso",
       type: "number",
     },
     {
       name: "partida",
       type: "text",
-    },
-    {
-      name: "cantidad",
-      type: "number",
     },
     {
       name: "precio",
